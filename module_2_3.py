@@ -3,6 +3,7 @@ list_1 = 0
 while list_1 < len(my_list):
     if my_list[list_1] < 0:
         break
-    print(my_list[list_1])
-    list_1+=1
+    if my_list[list_1] != 0:  # Игнорируем нулевые значения
+        print(my_list[list_1])
+    list_1 += 1
 print('список закончен')
