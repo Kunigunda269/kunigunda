@@ -11,7 +11,7 @@ def generate_password(n):
                     result.append(f'{i}{j}')
     return ''.join(result)
 
-
-n = int(input("введите число от 3 до 20: "))
-password = generate_password(n)
-print(f"сгенерированный пароль для числа {n}: {password}")
+test_values = [3, 4, 5, 6, 7, 8, 9, 10, 15, 20]
+for n in test_values:
+    password = generate_password(n)
+    print(f"сгенерированный пароль для числа {n}: {password}")
