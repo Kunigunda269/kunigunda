@@ -1,14 +1,12 @@
 def generate_password(n):
     result = []
-    used_pairs = set()
+
     for i in range(1, n):
         for j in range(i + 1, n):
-            pair_sum = i + j
-            if pair_sum % n == 0:
-                pair = (i, j)
-                if pair not in used_pairs:
-                    used_pairs.add(pair)
-                    result.append(f'{i}{j}')
+            result.append(f'{i}{j}')
+
+    result.sort()
+
     return ''.join(result)
 
 test_values = [3, 4, 5, 6, 7, 8, 9, 10, 15, 20]
