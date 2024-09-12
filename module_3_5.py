@@ -9,4 +9,4 @@ def get_multiplied_digits(number):
     return first * get_multiplied_digits(remaining_number)
 
 result = get_multiplied_digits(40203)
-print(result)  # Вывод: 24
+print(result) 
