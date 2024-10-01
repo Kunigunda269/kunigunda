@@ -1,10 +1,10 @@
 class House:
-    houses_history = []  # атрибут для хранения истории домов
+    houses_history = []  
 
     def __new__(cls, *args, **kwargs):
         instance = super().__new__(cls)
         if args:
-            cls.houses_history.append(args[0])  # добавляем название дома в историю
+            cls.houses_history.append(args[0])
         return instance
 
     def __init__(self, name, number_of_floors):
@@ -69,7 +69,7 @@ class House:
 
 
 h1 = House('ЖК Эльбрус', 10)
-print(House.houses_history)  # ['ЖК Эльбрус']
+print(House.houses_history)  
 h2 = House('ЖК Акация', 20)
 print(House.houses_history)
 h3 = House('ЖК Матрёшки', 20)
