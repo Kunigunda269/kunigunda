@@ -1,18 +1,38 @@
-def custom_write(file_name, strings):
-    strings_positions = {}
-    file = open(file_name, 'w', encoding='utf-8')
+import string
 
-    for string in strings:
-        start_pos = file.tell()
-        file.write(string + '\n')
-        strings_positions[(len(strings_positions) + 1, start_pos)] = string
-    file.close()
+class WordsFinder:
+    def __init__(self, *file_names):
+        self.file_names = list(file_names)
 
-    return strings_positions
+    def get_all_words(self):
+        all_words = {}
+        for file_name in self.file_names:
+            with open(file_name, 'r', encoding='utf-8') as file:
+                text = file.read().lower()
+                for punct in [',', '.', '=', '!', '?', ';', ':', ' - ']:
+                    text = text.replace(punct, '')
+                words = text.split()
+                all_words[file_name] = words
+        return all_words
 
+    def find(self, word):
+        word = word.lower()
+        word_positions = {}
+        all_words = self.get_all_words()
+        for file_name, words in all_words.items():
+            if word in words:
+                word_positions[file_name] = words.index(word) + 1
+        return word_positions
 
+    def count(self, word):
+        word = word.lower()
+        word_counts = {}
+        all_words = self.get_all_words()
+        for file_name, words in all_words.items():
+            word_counts[file_name] = words.count(word)
+        return word_counts
 
-info = ['Text for tell.','Используйте кодировку utf-8.','Because there are 2 languages!','Спасибо!']
-result = custom_write('test.txt', info)
-for pos, string in result.items():
-    print(pos, string)
+finder = WordsFinder('test_file.txt')
+print(finder.get_all_words())
+print(finder.find('TEXT'))
+print(finder.count('teXT'))
