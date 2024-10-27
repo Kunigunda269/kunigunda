@@ -1,7 +1,7 @@
 def add_everything_up(a, b):
-    if type(a) == type(b):
+    try:
         return a + b
-    else:
+    except TypeError:
         return str(a) + str(b)
 
 print(add_everything_up(123.456, 'строка'))
