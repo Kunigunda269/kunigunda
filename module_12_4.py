@@ -1,7 +1,7 @@
 import logging
 from runner_module import Runner
 
-# Настройка логирования
+
 logging.basicConfig(
     level=logging.INFO,
     filename="runner_tests.log",
@@ -14,7 +14,6 @@ class RunnerTest:
     @staticmethod
     def test_walk():
         try:
-            # Создаем объект с неправильной скоростью
             r1 = Runner("Вася", -5)
             r1.walk()
             logging.info('"test_walk" выполнен успешно')
@@ -25,7 +24,6 @@ class RunnerTest:
     @staticmethod
     def test_run():
         try:
-            # Создаем объект с неправильным именем
             r2 = Runner(2)
             r2.run()
             logging.info('"test_run" выполнен успешно')
