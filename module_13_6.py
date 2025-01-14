@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-API_TOKEN = '7643822413:AAFmN0VEX9SkH6qLr-MRNfBgiDRXGwFfa-4'
+API_TOKEN = '123'
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
